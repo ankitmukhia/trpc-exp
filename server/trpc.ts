@@ -1,5 +1,9 @@
 import { initTRPC } from '@trpc/server'
+import { todosTable } from '@/db/schema'
+import { db } from '@/db'
+import z from 'zod'
 
+import { drizzle } from 'drizzle-orm/node-postgres'
 // initilize trpc
 const t = initTRPC.create()
 
@@ -12,9 +16,16 @@ export const publicProcedure = t.procedure
 export const appRouter = router({
 	// query is best for fetching data
 	getTodos: publicProcedure.query(async () => {
-		return {
-			message: "Hello trpc."
-		}
+		return await db.select().from(todosTable)
+	}),
+	// mutation
+	addTodo: publicProcedure.input(z.object({
+		title: z.string(),
+		description: z.string(),
+		task: z.string(),
+	})).mutation(async ({ input }) => {
+		await db.insert(todosTable).values({ title: input.title, description: input.description, task: input.task })
+		return true;
 	})
 })
 

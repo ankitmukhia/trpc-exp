@@ -38,6 +38,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      zod:
+        specifier: ^3.25.51
+        version: 3.25.51
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -1128,6 +1131,9 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
+  zod@3.25.51:
+    resolution: {integrity: sha512-TQSnBldh+XSGL+opiSIq0575wvDPqu09AqWe1F7JhUMKY+M91/aGlK4MhpVNO7MgYfHcVCB1ffwAUTJzllKJqg==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -1902,3 +1908,5 @@ snapshots:
   xtend@4.0.2: {}
 
   yallist@5.0.0: {}
+
+  zod@3.25.51: {}
